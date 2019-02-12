@@ -10,13 +10,27 @@
   <body>
 
     <div id ="vue-app">
-      <h1>Conditionals</h1>
-        <button v-on:click="error = !error">Toggle Error</button>
-        <button v-on:click="success = !success">Toggle Success</button>
-        <p v-if="error">Error</p>
-        <p v-else-if="success">Success</p>
-        <p v-show="error">Error2</p>
-        <p v-show="success">Success2</p>
+      <h1>Looping through lists</h1>
+      <ul>
+        <li v-for="(character, index) in characters">{{index}}. {{character}}</li>
+      </ul>
+
+      <ul>
+        <li v-for="(ninja, index) in ninjas"> {{index}}. {{ninja.name}} - {{ninja.age}}</li>
+      </ul>
+
+      <template v-for="(ninja, index) in ninjas">
+        <h3>{{index}}. {{ninja.name}}</h3>
+        <p>{{ninja.age}}</p>
+      </template>
+
+     <h2>Double Looping:</h2>
+      <div v-for="ninja in ninjas">
+        <template v-for="(value,key) in ninja">
+        <p>{{key}} - {{value}}</p>
+      </template>
+    </div>
+
     </div>
   <script src="app.js"></script>
   </body>
